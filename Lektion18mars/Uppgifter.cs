@@ -12,10 +12,13 @@ namespace Lektion18mars
 
         public string Datum { get; set; }
 
-        public Uppgifter(string uppgift, string datum)
+        public string Tid { get; set; }
+
+        public Uppgifter(string uppgift, string datum, string tid)
         {
             Uppgift = uppgift;
             Datum = datum;
+            Tid = tid;
         }
     }
 }

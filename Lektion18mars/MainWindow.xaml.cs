@@ -49,7 +49,9 @@ namespace Lektion18mars
             }
         }
 
-        public string tid { get; set; } = DateTime.Now.ToString("HH,mm");
+        public string Tid { get; set; } = DateTime.Now.ToString("HH.mm");
+
+        public string Datum { get; set; } = DateTime.Today.ToString("yyyy-MM-dd");
         public MainWindow()
         {
             InitializeComponent();
@@ -60,7 +62,7 @@ namespace Lektion18mars
         {
             if (!string.IsNullOrWhiteSpace(newTaskTextBox.Text))
             {
-                Tasks.Add(new Uppgifter(newTaskTextBox.Text, alarmDatePicker.Text));
+                Tasks.Add(new Uppgifter(newTaskTextBox.Text, alarmDatePicker.Text, Tid));
                 newTaskTextBox.Clear();
             }
         }
