@@ -32,6 +32,8 @@ namespace Lektion18mars
 
         private Uppgifter newTask;
 
+        public Timer timer { get; set; }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -56,13 +58,15 @@ namespace Lektion18mars
         {
             InitializeComponent();
             DataContext = this;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(newTaskTextBox.Text))
             {
-                Tasks.Add(new Uppgifter(newTaskTextBox.Text, alarmDatePicker.Text, Tid));
+                
+                Tasks.Add(new Uppgifter(newTaskTextBox.Text, alarmDatePicker.Text, alarmTimePicker.Text));
                 newTaskTextBox.Clear();
             }
         }
@@ -79,6 +83,11 @@ namespace Lektion18mars
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Tasks.Remove(taskListBox.SelectedItem as Uppgifter);
         }
     }
 }

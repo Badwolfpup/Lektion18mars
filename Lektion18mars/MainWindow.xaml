@@ -17,6 +17,17 @@
             </Grid.RowDefinitions>
 
             <ListView x:Name="taskListBox" ItemsSource="{Binding Tasks}" HorizontalContentAlignment="Stretch" Grid.Row="0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch" >
+                            <StackPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Radera" Click="MenuItem_Click"></MenuItem>
+                                </ContextMenu>
+                            </StackPanel.ContextMenu>
+                        </StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock>
